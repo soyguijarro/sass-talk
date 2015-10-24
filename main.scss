@@ -28,6 +28,22 @@ $transition-easing: ease;
 $first-break-width: $base-space * 20;
 $second-break-width: $base-space * 32;
 
+// Placeholders
+%transition {
+  transition: {
+    property: all;
+    duration: $transition-duration;
+    easing: $transition-easing;
+  }
+}
+
+%h-tag {
+  font: {
+    family: $header-font-family;
+    weight: normal;
+  }
+}
+
 // Custom functions
 @function replace-spaces($string) {
   $match: ' ';
@@ -61,20 +77,14 @@ body {
   margin: 0;
 }
 
-h1,
-h2 {
-  font: {
-    family: $header-font-family;
-    weight: normal;
-  }
-}
-
 h1 {
+  @extend %h-tag;
   font-size: $base-font-size * 1.8;
   margin: 0 0 $small-space 0;
 }
 
 h2 {
+  @extend %h-tag;
   font-size: $base-font-size * 1.4;
 }
 
@@ -130,11 +140,7 @@ header {
         color: $white-color;
         text-decoration: none;
         cursor: pointer;
-        transition: {
-          property: background-color;
-          duration: $transition-duration;
-          easing: $transition-easing;
-        }
+        @extend %transition;
         @media screen {
           @media (min-width: $first-break-width) {
             display: inline;
@@ -174,11 +180,7 @@ main {
 
   a {
     color: $accent-color;
-    transition: {
-      property: color;
-      duration: $transition-duration;
-      easing: $transition-easing;
-    }
+    @extend %transition;
 
     &:hover {
       color: $accent-color-lighter;
@@ -217,11 +219,7 @@ main {
       border: 1px solid;
       border-radius: $small-space;
       cursor: pointer;
-      transition: {
-        property: background-color, border-color;
-        duration: $transition-duration;
-        easing: $transition-easing;
-      }
+      @extend %transition;
 
       &.okay {
         background-color: $accent-color;
