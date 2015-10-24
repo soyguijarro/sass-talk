@@ -3,8 +3,10 @@
 
 // Base
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1rem;
+  font: {
+    family: 'Source Sans Pro', sans-serif;
+    size: 1rem;
+  }
   line-height: 1.5rem;
   color: #2e3436;
   margin: 0;
@@ -12,8 +14,10 @@ body {
 
 h1,
 h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: normal;
+  font: {
+    family: 'Montserrat', sans-serif;
+    weight: normal;
+  }
 }
 
 h1 {
@@ -77,9 +81,11 @@ header {
         color: white;
         text-decoration: none;
         cursor: pointer;
-        transition-property: background-color;
-        transition-duration: 200ms;
-        transition-easing: ease;
+        transition: {
+          property: background-color;
+          duration: 200ms;
+          easing: ease;
+        }
         @media screen {
           @media (min-width: 30rem) {
             display: inline;
@@ -119,9 +125,11 @@ main {
 
   a {
     color: #3465a4;
-    transition-property: color;
-    transition-duration: 200ms;
-    transition-easing: ease;
+    transition: {
+      property: color;
+      duration: 200ms;
+      easing: ease;
+    }
 
     &:hover {
       color: #477ec5;
@@ -149,8 +157,10 @@ main {
     margin: 2.25rem auto;
     
     button {
-      font-family: 'Source Sans Pro', sans-serif;
-      font-size: 1rem;
+      font: {
+        family: 'Source Sans Pro', sans-serif;
+        size: 1rem;
+      }
       color: white;
       min-width: 10.5rem;
       padding: 0.9rem 0;
@@ -158,9 +168,11 @@ main {
       border: 1px solid;
       border-radius: 0.75em;
       cursor: pointer;
-      transition-property: background-color, border-color;
-      transition-duration: 200ms;
-      transition-easing: ease;
+      transition: {
+        property: background-color, border-color;
+        duration: 200ms;
+        easing: ease;
+      }
 
       &.okay {
         background-color: #3465a4;
