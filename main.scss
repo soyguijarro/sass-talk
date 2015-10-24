@@ -1,21 +1,18 @@
-// Imports
-$google-fonts: 'Source+Sans+Pro|Montserrat';
-@import url('//fonts.googleapis.com/css?family=' + $google-fonts);
-
 // Fonts
-$body-font-family: 'Source Sans Pro', sans-serif;
-$header-font-family: 'Montserrat', sans-serif;
+$google-fonts: 'Source Sans Pro', 'Montserrat';
+$body-font-family: nth($google-fonts, 1), sans-serif;
+$header-font-family: nth($google-fonts, 2), sans-serif;
 
 // Colors
 $white-color: #ffffff;
 $text-color: #2e3436;
-$text-color-lighter: #909ca0;
+$text-color-lighter: lighten($text-color, 40%);
 $accent-color: #3465a4;
-$accent-color-darker: #284d7d;
-$accent-color-lighter: #477ec5;
+$accent-color-darker: darken($accent-color, 10%);
+$accent-color-lighter: lighten($accent-color, 10%);
 $cancel-color: #cc0000;
-$cancel-color-darker: #990000;
-$cancel-color-lighter: #ff0000;
+$cancel-color-darker: darken($cancel-color, 10%);
+$cancel-color-lighter: lighten($color: $cancel-color, $amount: 10%);
 
 // Sizes
 $base-font-size: 1rem;
@@ -30,6 +27,28 @@ $transition-easing: ease;
 // Breakpoints
 $first-break-width: $base-space * 20;
 $second-break-width: $base-space * 32;
+
+// Custom functions
+@function replace-spaces($string) {
+  $match: ' ';
+  $replacement: '+';
+  $index: str-index($string, $match);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replacement +
+      replace-spaces(str-slice($string, $index + 1));
+  }
+  
+  @return $string;
+}
+
+$google-fonts-str: '';
+@each $font in $google-fonts {
+  $google-fonts-str: str-insert($google-fonts-str, replace-spaces($font) + '|', 1);
+}
+
+// Imports
+@import url('//fonts.googleapis.com/css?family=' + $google-fonts-str);
 
 // Base
 body {
