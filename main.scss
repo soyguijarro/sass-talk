@@ -1,0 +1,188 @@
+// Imports
+@import url('//fonts.googleapis.com/css?family=Source+Sans+Pro|Montserrat');
+
+// Base
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #2e3436;
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 0 0 0.75rem 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+p {
+  margin: 1.5rem 0;
+}
+
+strong {
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+// Header
+header {
+  display: table;
+  width: 100%;
+  padding: 1.5rem 0 0.75rem 0;
+  background-color: #3465a4;
+  color: white;
+}
+
+header h1 {
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+header nav ul {
+  padding: 0;
+  margin: 0;
+}
+
+header nav ul li {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 200ms;
+  transition-easing: ease;
+}
+
+header nav ul li:hover {
+  background-color: #477ec5;
+}
+
+// Main
+main {
+  padding: 0 1.5rem;
+  margin: 2.25rem auto;
+}
+
+main h2 {
+  color: #909ca0;
+  margin: 0 0 0.75rem 0;
+}
+
+main a {
+  color: #3465a4;
+  transition-property: color;
+  transition-duration: 200ms;
+  transition-easing: ease;
+}
+
+main a:hover {
+  color: #477ec5;
+}
+
+main blockquote {
+  position: relative;
+  font-size: 1.2rem;
+  margin-left: 3.6rem;
+}
+
+main blockquote::after {
+  content: '“';
+  font-size: 5rem;
+  position: absolute;
+  top: 0.2em;
+  left: -0.5em;
+  color: #909ca0;
+  z-index: -1;
+}
+
+main .buttons {
+  text-align: center;
+  margin: 2.25rem auto;
+}
+
+main .buttons button {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem;
+  color: white;
+  min-width: 10.5rem;
+  padding: 0.9rem 0;
+  margin: 0.75rem 1.5rem;
+  border: 1px solid;
+  border-radius: 0.75em;
+  cursor: pointer;
+  transition-property: background-color, border-color;
+  transition-duration: 200ms;
+  transition-easing: ease;
+}
+
+main .buttons button.okay {
+  background-color: #3465a4;
+  border-color: #3465a4;
+  box-shadow: 0 0.375rem 0 0 #284d7d;
+}
+
+main .buttons button.okay:hover {
+  background-color: #477ec5;
+  border-color: #477ec5;
+}
+
+main .buttons button.cancel {
+  background-color: #cc0000;
+  border-color: #cc0000;
+  box-shadow: 0 0.375rem 0 0 #990000;
+}
+
+main .buttons button.cancel:hover {
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+
+// Media queries
+@media screen and (min-width: 30rem) {
+  header nav {
+    margin-top: 1.5rem;
+  }
+
+  header nav ul li {
+    display: inline;
+  }
+  main {
+    max-width: 37.5rem;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  header {
+    padding: 1.5rem 0;
+  }
+
+  header h1 {
+    float: left;
+    padding-left: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  header nav {
+    float: right;
+    margin-top: 0;
+  }
+
+  header nav ul li {
+    padding: 1.5rem;
+  }
+
+  main {
+    margin: 3rem auto;
+  }
+}
