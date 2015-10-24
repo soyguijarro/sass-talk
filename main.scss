@@ -1,36 +1,66 @@
 // Imports
-@import url('//fonts.googleapis.com/css?family=Source+Sans+Pro|Montserrat');
+$google-fonts: 'Source+Sans+Pro|Montserrat';
+@import url('//fonts.googleapis.com/css?family=' + $google-fonts);
+
+// Fonts
+$body-font-family: 'Source Sans Pro', sans-serif;
+$header-font-family: 'Montserrat', sans-serif;
+
+// Colors
+$white-color: #ffffff;
+$text-color: #2e3436;
+$text-color-lighter: #909ca0;
+$accent-color: #3465a4;
+$accent-color-darker: #284d7d;
+$accent-color-lighter: #477ec5;
+$cancel-color: #cc0000;
+$cancel-color-darker: #990000;
+$cancel-color-lighter: #ff0000;
+
+// Sizes
+$base-font-size: 1rem;
+$base-line-height: $base-font-size * 1.5;
+$base-space: $base-line-height;
+$small-space: $base-space / 2;
+
+// Transitions
+$transition-duration: 200ms;
+$transition-easing: ease;
+
+// Breakpoints
+$first-break-width: $base-space * 20;
+$second-break-width: $base-space * 32;
 
 // Base
 body {
   font: {
-    family: 'Source Sans Pro', sans-serif;
-    size: 1rem;
+    family: $body-font-family;
+    size: $base-font-size;
   }
-  line-height: 1.5rem;
-  color: #2e3436;
+  line-height: $base-line-height;
+  color: $text-color;
   margin: 0;
 }
 
 h1,
 h2 {
   font: {
-    family: 'Montserrat', sans-serif;
+    family: $header-font-family;
     weight: normal;
   }
 }
 
 h1 {
-  font-size: 1.8rem;
-  margin: 0 0 0.75rem 0;
+  font-size: $base-font-size * 1.8;
+  margin: 0 0 $small-space 0;
 }
 
 h2 {
-  font-size: 1.4rem;
+  font-size: $base-font-size * 1.4;
 }
 
 p {
-  margin: 1.5rem 0;
+  margin: $base-space 0;
 }
 
 strong {
@@ -42,30 +72,30 @@ strong {
 header {
   display: table;
   width: 100%;
-  padding: 1.5rem 0 0.75rem 0;
-  background-color: #3465a4;
-  color: white;
-  @media screen and (min-width: 48rem) {
-    padding: 1.5rem 0;
+  padding: $base-space 0 $small-space 0;
+  background-color: $accent-color;
+  color: $white-color;
+  @media screen and (min-width: $second-break-width) {
+    padding: $base-space 0;
   }
 
   h1 {
-    padding-left: 1.5rem;
-    margin-bottom: 0.75rem;
-    @media screen and (min-width: 48rem) {
+    padding-left: $base-space;
+    margin-bottom: $small-space;
+    @media screen and (min-width: $second-break-width) {
       float: left;
-      padding-left: 1.5rem;
+      padding-left: $base-space;
       margin-bottom: 0;
     }
   }
 
   nav {
     @media screen {
-      @media (min-width: 30rem) {
-        margin-top: 1.5rem;
+      @media (min-width: $first-break-width) {
+        margin-top: $base-space;
       }
 
-      @media (min-width: 48rem) {
+      @media (min-width: $second-break-width) {
         float: right;
         margin-top: 0;
       }
@@ -77,27 +107,27 @@ header {
       
       li {
         display: block;
-        padding: 0.75rem 1.5rem;
-        color: white;
+        padding: $small-space $base-space;
+        color: $white-color;
         text-decoration: none;
         cursor: pointer;
         transition: {
           property: background-color;
-          duration: 200ms;
-          easing: ease;
+          duration: $transition-duration;
+          easing: $transition-easing;
         }
         @media screen {
-          @media (min-width: 30rem) {
+          @media (min-width: $first-break-width) {
             display: inline;
           }
 
-          @media (min-width: 48rem) {
-            padding: 1.5rem;
+          @media (min-width: $second-break-width) {
+            padding: $base-space;
           }
         }
         
         &:hover {
-          background-color: #477ec5;
+          background-color: $accent-color-lighter;
         }
       }
     }
@@ -106,93 +136,93 @@ header {
 
 // Main
 main {
-  padding: 0 1.5rem;
-  margin: 2.25rem auto;
+  padding: 0 $base-space;
+  margin: $small-space * 3 auto;
   @media screen {
-    @media (min-width: 30rem) {
-      max-width: 37.5rem;
+    @media (min-width: $first-break-width) {
+      max-width: $base-space * 25;
     }
 
-    @media (min-width: 48rem) {
-      margin: 3rem auto;
+    @media (min-width: $second-break-width) {
+      margin: $base-space * 2 auto;
     }
   }
 
   h2 {
-    color: #909ca0;
-    margin: 0 0 0.75rem 0;
+    color: $text-color-lighter;
+    margin: 0 0 $small-space 0;
   }
 
   a {
-    color: #3465a4;
+    color: $accent-color;
     transition: {
       property: color;
-      duration: 200ms;
-      easing: ease;
+      duration: $transition-duration;
+      easing: $transition-easing;
     }
 
     &:hover {
-      color: #477ec5;
+      color: $accent-color-lighter;
     }
   }
 
   blockquote {
     position: relative;
-    font-size: 1.2rem;
-    margin-left: 3.6rem;
+    font-size: $base-font-size * 1.2;
+    margin-left: $base-space * 2.4;
     
     &::after {
       content: '“';
-      font-size: 5rem;
+      font-size: $base-font-size * 5;
       position: absolute;
       top: 0.2em;
       left: -0.5em;
-      color: #909ca0;
+      color: $text-color-lighter;
       z-index: -1;
     }
   }
 
   .buttons {
     text-align: center;
-    margin: 2.25rem auto;
+    margin: $base-space * 1.5 auto;
     
     button {
       font: {
-        family: 'Source Sans Pro', sans-serif;
-        size: 1rem;
+        family: $body-font-family;
+        size: $base-font-size;
       }
-      color: white;
-      min-width: 10.5rem;
-      padding: 0.9rem 0;
-      margin: 0.75rem 1.5rem;
+      color: $white-color;
+      min-width: $base-space * 7;
+      padding: $small-space * 1.2 0;
+      margin: $small-space $base-space;
       border: 1px solid;
-      border-radius: 0.75em;
+      border-radius: $small-space;
       cursor: pointer;
       transition: {
         property: background-color, border-color;
-        duration: 200ms;
-        easing: ease;
+        duration: $transition-duration;
+        easing: $transition-easing;
       }
 
       &.okay {
-        background-color: #3465a4;
-        border-color: #3465a4;
-        box-shadow: 0 0.375rem 0 0 #284d7d;
+        background-color: $accent-color;
+        border-color: $accent-color;
+        box-shadow: 0 $small-space / 2 0 0 $accent-color-darker;
 
         &:hover {
-          background-color: #477ec5;
-          border-color: #477ec5;
+          background-color: $accent-color-lighter;
+          border-color: $accent-color-lighter;
         }
       }
 
       &.cancel {
-        background-color: #cc0000;
-        border-color: #cc0000;
-        box-shadow: 0 0.375rem 0 0 #990000;
+        background-color: $cancel-color;
+        border-color: $cancel-color;
+        box-shadow: 0 $small-space / 2 0 0 $cancel-color-darker;
 
         &:hover {
-          background-color: #ff0000;
-          border-color: #ff0000;
+          background-color: $cancel-color-lighter;
+          border-color: $cancel-color-lighter;
         }
       }
     }
