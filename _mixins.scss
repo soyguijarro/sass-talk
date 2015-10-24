@@ -1,0 +1,13 @@
+@mixin transition($properties...) {
+  transition: {
+    property: $properties;
+    duration: $transition-duration;
+    easing: $transition-easing;
+  }
+}
+
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}

@@ -1,0 +1,19 @@
+@function replace-spaces($string) {
+  $match: ' ';
+  $replacement: '+';
+  $index: str-index($string, $match);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replacement +
+      replace-spaces(str-slice($string, $index + 1));
+  }
+  
+  @return $string;
+}
+
+$google-fonts-str: '';
+@each $font in $google-fonts {
+  $google-fonts-str: str-insert($google-fonts-str, replace-spaces($font) + '|', 1);
+}
+
+@import url('//fonts.googleapis.com/css?family=' + $google-fonts-str);

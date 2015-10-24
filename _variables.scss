@@ -1,0 +1,29 @@
+// Fonts
+$google-fonts: 'Source Sans Pro', 'Montserrat';
+$body-font-family: nth($google-fonts, 1), sans-serif;
+$header-font-family: nth($google-fonts, 2), sans-serif;
+
+// Colors
+$white-color: #ffffff;
+$text-color: #2e3436;
+$text-color-lighter: lighten($text-color, 40%);
+$accent-color: #3465a4;
+$accent-color-darker: darken($accent-color, 10%);
+$accent-color-lighter: lighten($accent-color, 10%);
+$cancel-color: #cc0000;
+$cancel-color-darker: darken($cancel-color, 10%);
+$cancel-color-lighter: lighten($color: $cancel-color, $amount: 10%);
+
+// Sizes
+$base-font-size: 1rem;
+$base-line-height: $base-font-size * 1.5;
+$base-space: $base-line-height;
+$small-space: $base-space / 2;
+
+// Transitions
+$transition-duration: 200ms;
+$transition-easing: ease;
+
+// Breakpoints
+$first-break-width: $base-space * 20;
+$second-break-width: $base-space * 32;
