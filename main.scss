@@ -29,19 +29,26 @@ $first-break-width: $base-space * 20;
 $second-break-width: $base-space * 32;
 
 // Placeholders
-%transition {
-  transition: {
-    property: all;
-    duration: $transition-duration;
-    easing: $transition-easing;
-  }
-}
-
 %h-tag {
   font: {
     family: $header-font-family;
     weight: normal;
   }
+}
+
+// Mixins
+@mixin transition($properties...) {
+  transition: {
+    property: $properties;
+    duration: $transition-duration;
+    easing: $transition-easing;
+  }
+}
+
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
 }
 
 // Custom functions
@@ -140,7 +147,7 @@ header {
         color: $white-color;
         text-decoration: none;
         cursor: pointer;
-        @extend %transition;
+        @include transition(background-color);
         @media screen {
           @media (min-width: $first-break-width) {
             display: inline;
@@ -180,7 +187,7 @@ main {
 
   a {
     color: $accent-color;
-    @extend %transition;
+    @include transition(color);
 
     &:hover {
       color: $accent-color-lighter;
@@ -217,9 +224,9 @@ main {
       padding: $small-space * 1.2 0;
       margin: $small-space $base-space;
       border: 1px solid;
-      border-radius: $small-space;
+      @include border-radius($small-space);
       cursor: pointer;
-      @extend %transition;
+      @include transition(background-color, border-color);
 
       &.okay {
         background-color: $accent-color;
